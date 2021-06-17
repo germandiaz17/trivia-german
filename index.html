@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles-trivia.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Trivia-German</title>
+</head>
+<body>
+
+    <!-- formulario -->
+    <form action="" id="principal-form">
+
+        <!-- titulo principal -->
+        <div class="title-trivia">
+            <div>
+                <h1>TRIVIA</h1>
+                <h3>let's start playing!</h3>
+            </div>
+        </div>
+
+
+        <!-- preguntas -->
+        <div class="form-questions">
+
+            <!-- datos personales -->
+
+            <!-- name -->
+            <div class="data-person">
+                <label for="name-user">Name</label><br>
+                <input type="text" id="name-user" placeholder="Name">
+            </div>
+
+
+            <!-- configuraciones -->
+            <div class="settings-form">
+                
+                <div class="row">
+                    <div class="col">
+                        <!-- numero de preguntas -->
+                        <div class="item-form">
+                            <label for="numQuestions">Chose number of questions</label><br>
+                            <input type="number" max="20" id="numQuestions" placeholder="max 20">
+                        </div>
+                        
+                        <!-- categoria -->
+                        <div class="item-form">
+                            <label for="category">Chose category</label><br>
+                            <select name="" id="category">
+                                <option value="0">Any category</option>
+                                <option value="9">Cultura general</option>
+                                <option value="10">Libros</option>
+                                <option value="11">Películas</option>
+                                <option value="12">Música</option>
+                                <option value="13">Musicales y teatros</option>
+                                <option value="14">Televisión</option>
+                                <option value="15">Videojuegos</option>
+                                <option value="16">Juegos de mesa</option>
+                                <option value="17">Ciencia y naturaleza</option>
+                                <option value="18">Computación</option>
+                                <option value="19">Matemáticas</option>
+                                <option value="20">Mitología</option>
+                                <option value="21">Deportes</option>
+                                <option value="22">Geografía</option>
+                                <option value="23">Historia</option>
+                                <option value="24">Política</option>
+                                <option value="25">Arte</option>
+                                <option value="26">Celebridades</option>
+                                <option value="27">Animales</option>
+                                <option value="28">Autos</option>
+                                <option value="29">Comics</option>
+                                <option value="30">Gadgets</option>
+                                <option value="31">Ánime y manga</option>
+                                <option value="32">Caricaturas</option>
+                              </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                        <!-- dificultad -->
+                        <div class="item-form">
+                            <label for="difficulty">Chose of difficulty</label><br>
+                            <select name="" id="difficulty">
+                                <option value="0">Cualquier dificultad</option>
+                                <option value="easy">Fácil</option>
+                                <option value="medium">Moderada</option>
+                                <option value="hard">Difícil</option>
+                            </select>
+                        </div>
+                        
+                        <!-- tipo de pregunta -->
+                        <div class="item-form">
+                            <label for="type">Chose type</label><br>
+                            <select name="" id="type">
+                                <option value="0">Cualquier tipo</option>
+                                <option value="multiple">Opción Múltiple</option>
+                                <option value="boolean">Verdadero / Falso</option>
+                              </select>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+
+        <!-- boton de enviar -->
+        <div class="button-form">
+                <button type="submit">Start</button>
+        </div>
+
+    </form>
+
+</body>
+</html>
