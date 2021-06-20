@@ -8,7 +8,7 @@ body{
 
 
 /* formulario principal */
-#principal-form{
+.principal-content{
     width: 70%;
     height: 90vh;
     margin: auto;
@@ -90,4 +90,42 @@ option{
 
 .button-form button:hover{
     background-color: #E8F4F6;
+}
+
+
+/* seccion de preguntas */
+.dev-questions{
+    display: none;
+}
+
+.seccion-question{
+    width: 70%;
+    margin: auto;
+}
+
+.question{
+    text-align: center;
+}
+
+.seccion-buttons{
+    margin: auto;
+    margin-top: 100px;
+    width: 70%;
+}
+
+.Rbutton{
+    border: none;
+    border-radius: 5px;
+    padding: 15px 25px;
+    background-color: #4DCDE9;
+    cursor: pointer;
+    color: white;
+}
+
+.Rbutton:hover{
+    background-color: #7FDAEE;
+}
+
+#infoQuestion{
+    font-size: 10px;
 }
