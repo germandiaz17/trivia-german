@@ -10,6 +10,7 @@ let amount = document.getElementById('numQuestions');
 let category = document.getElementById('category');
 let difficulty = document.getElementById('difficulty');
 let type = document.getElementById('type');
+let Rbuttons = document.getElementsByClassName('Rbutton');
 
 const btn1 = document.getElementById('1');
 const btn2 = document.getElementById('2');
@@ -21,6 +22,7 @@ let questions;
 let indexQuestion = 0;
 let controlQuestions;
 let j = 0;
+let score = 0;
 
 // FUNCIONES
 getData = (prevent) => {
@@ -45,13 +47,15 @@ fetch(urlApi)
 // funcion que me manda a iniciar las preguntas
 const startGame = () => {
 
+    console.log(score);
+
     // ocultar y presentar las interfaces
     triviaFrom.style.display = 'none';
     triviaQuestions.style.display = 'block';
 
     // variable currentQuestion para acceder a la informacion del arreglo de la pregunta actual
     let currentQuestion = questions[indexQuestion];
-    // console.log(currentQuestion);
+    console.log(questions);
 
     // linea de informacion de la pregunta actual
     infoQuestion.innerText = `Number of questions: ${amount.value}, Category: ${currentQuestion.category}, Difficulty: ${currentQuestion.difficulty}, Type: ${currentQuestion.type}`;
@@ -70,13 +74,18 @@ const startGame = () => {
         btn2.innerText = 'False';
         btn3.style.display = 'none';
         btn4.style.display = 'none';
+        if(currentQuestion.correct_answer === 'True'){
+            controlQuestions = 1;
+        }else{
+            controlQuestions = 2;
+        }
     }else{
 
         // en caso de que sea opcion multiple y pintamos la respuesta correcta
         controlQuestions = Math.floor(Math.random() * 4) + 1;
         let correct = document.getElementById(controlQuestions).innerText = currentQuestion.correct_answer;
-        // console.log(correct);
-        // console.log(controlQuestions);
+        console.log(correct);
+        console.log(controlQuestions);
 
         // pintamos las demas respuestas
         for(let i = 1; i <= 4; i++){
@@ -87,5 +96,23 @@ const startGame = () => {
     }
 };
 
+const selectResponse = (id) => {
+    let IdAnswer = parseInt(id);
+    if(IdAnswer === controlQuestions){
+        console.log('Respuesta correcta!!');
+        score++;
+    }else{
+        console.log('Respuesta incorrecta!!');
+    }
+
+    indexQuestion++
+    startGame();
+};
+
+
+for(let i = 0; i < Rbuttons.length; i++){
+    const btns = Rbuttons[i];
+    btns.addEventListener('click', () => selectResponse(btns.id));
+}
 
 triviaFrom.addEventListener('submit', getData);
