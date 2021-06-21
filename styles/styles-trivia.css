@@ -129,3 +129,16 @@ option{
 #infoQuestion{
     font-size: 10px;
 }
+
+
+
+/* seccion end game */
+
+#triviaEndGame{
+    display: none;
+}
+
+.endGame{
+    display: flex;
+    justify-content: center;
+}

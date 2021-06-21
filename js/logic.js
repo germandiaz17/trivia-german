@@ -1,5 +1,9 @@
 //logica Trivia
 // ELEMENTOS OBTENIDOS
+let btn_restart = document.getElementById('btnRestart');
+let triviaEndGame = document.getElementById('triviaEndGame');
+let EGname = document.getElementById('EGname');
+let end_game_p = document.getElementById('end-game-p');
 let triviaFrom = document.getElementById('principal-form');
 let triviaQuestions = document.getElementById('dev-questions');
 let userName = document.getElementById('name-user');
@@ -25,6 +29,23 @@ let j = 0;
 let score = 0;
 
 // FUNCIONES
+
+const btnRestart = () => {
+    triviaFrom.style.display = 'block';
+    triviaQuestions.style.display = 'none';
+    triviaEndGame.style.display = 'none';
+    triviaFrom.reset();
+}
+
+const endGame = (score, amount) =>{
+    triviaFrom.style.display = 'none';
+    triviaQuestions.style.display = 'none';
+    triviaEndGame.style.display = 'block';
+    EGname.innerText = `${userName.value} End Game!`;
+    end_game_p.innerText = `You score is: ${score}/${amount}`;
+    btn_restart.addEventListener('click',  () => btnRestart());
+};
+
 getData = (prevent) => {
  prevent.preventDefault();
 
@@ -47,7 +68,7 @@ fetch(urlApi)
 // funcion que me manda a iniciar las preguntas
 const startGame = () => {
 
-    console.log(score);
+    // console.log(score);
 
     // ocultar y presentar las interfaces
     triviaFrom.style.display = 'none';
@@ -55,17 +76,12 @@ const startGame = () => {
 
     // variable currentQuestion para acceder a la informacion del arreglo de la pregunta actual
     let currentQuestion = questions[indexQuestion];
-    console.log(questions);
 
     // linea de informacion de la pregunta actual
     infoQuestion.innerText = `Number of questions: ${amount.value}, Category: ${currentQuestion.category}, Difficulty: ${currentQuestion.difficulty}, Type: ${currentQuestion.type}`;
 
     // texto de la pregunta
     pquestion.innerHTML = currentQuestion.question;
-
-    //texto de los botones
-    
-    
 
 
     // en caso de que la pregunta sea de tipo boleana
@@ -84,7 +100,7 @@ const startGame = () => {
         // en caso de que sea opcion multiple y pintamos la respuesta correcta
         controlQuestions = Math.floor(Math.random() * 4) + 1;
         let correct = document.getElementById(controlQuestions).innerText = currentQuestion.correct_answer;
-        console.log(correct);
+        // console.log(correct);
         console.log(controlQuestions);
 
         // pintamos las demas respuestas
@@ -96,6 +112,7 @@ const startGame = () => {
     }
 };
 
+// al seleccionar una opcion
 const selectResponse = (id) => {
     let IdAnswer = parseInt(id);
     if(IdAnswer === controlQuestions){
@@ -105,8 +122,12 @@ const selectResponse = (id) => {
         console.log('Respuesta incorrecta!!');
     }
 
-    indexQuestion++
-    startGame();
+    if(indexQuestion < (amount.value - 1)) {
+        indexQuestion++;
+        startGame();
+    }else if (indexQuestion == (amount.value -1)){
+        endGame(score, amount.value);
+    }
 };
 
 
