@@ -98,6 +98,11 @@ const startGame = () => {
     }else{
 
         // en caso de que sea opcion multiple y pintamos la respuesta correcta
+        btn1.style.display = 'block';
+        btn2.style.display = 'block';
+        btn3.style.display = 'block';
+        btn4.style.display = 'block';
+
         controlQuestions = Math.floor(Math.random() * 4) + 1;
         let correct = document.getElementById(controlQuestions).innerText = currentQuestion.correct_answer;
         // console.log(correct);
