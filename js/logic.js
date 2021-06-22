@@ -68,8 +68,6 @@ fetch(urlApi)
 // funcion que me manda a iniciar las preguntas
 const startGame = () => {
 
-    // console.log(score);
-
     // ocultar y presentar las interfaces
     triviaFrom.style.display = 'none';
     triviaQuestions.style.display = 'block';
@@ -104,8 +102,7 @@ const startGame = () => {
         btn4.style.display = 'block';
 
         controlQuestions = Math.floor(Math.random() * 4) + 1;
-        let correct = document.getElementById(controlQuestions).innerText = currentQuestion.correct_answer;
-        // console.log(correct);
+        document.getElementById(controlQuestions).innerText = currentQuestion.correct_answer;
         console.log(controlQuestions);
 
         // pintamos las demas respuestas
